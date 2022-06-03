@@ -5,15 +5,17 @@ pipeline {
     stage("Build") {
       steps {
         echo "Build stage"
-        git clone "https://github.com/spring-projects/spring-petclinic.git"
-        mvn compile
+        script {
+          git url: "https://github.com/spring-projects/spring-petclinic.git"
+//           mvn compile
+        }
       }
     }
     
     stage("Test") {
       steps {
           echo "Test stage"
-          mvn test
+//           mvn test
       }
     }
     
