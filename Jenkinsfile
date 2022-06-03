@@ -5,12 +5,15 @@ pipeline {
     stage("Build") {
       steps {
         echo "Build stage"
+        git "https://github.com/spring-projects/spring-petclinic.git"
+        mvn compile
       }
     }
     
     stage("Test") {
       steps {
           echo "Test stage"
+          mvn test
       }
     }
     
