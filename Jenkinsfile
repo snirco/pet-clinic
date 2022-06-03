@@ -6,7 +6,8 @@ pipeline {
       steps {
         echo "Build stage"
         git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
-//           mvn compile
+        sh 'cd spring-petclinic'
+        mvn compile
       }
     }
     
