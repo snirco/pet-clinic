@@ -17,7 +17,7 @@ pipeline {
     stage("Test") {
       steps {
         echo "Test stage"
-        mvn compile
+        sh 'mvn compile'
 //           mvn test
       }
     }
