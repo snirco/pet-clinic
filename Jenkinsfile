@@ -5,7 +5,7 @@ pipeline {
     stage("Build") {
       steps {
         echo "Build stage"
-        git "https://github.com/spring-projects/spring-petclinic.git"
+        git clone "https://github.com/spring-projects/spring-petclinic.git"
         mvn compile
       }
     }
