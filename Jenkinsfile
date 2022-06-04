@@ -1,5 +1,5 @@
 pipeline {
-  agent 'my-docker'
+  agent { label 'my-docker' }
   
 //   environment {
 //     registry = "snirco"
