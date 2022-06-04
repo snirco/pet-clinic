@@ -41,7 +41,7 @@ pipeline {
       steps {
         echo "Package Image stage..."
         sh 'mvn --version'
-        sh "docker build -t '${registry}'/latest ."
+//         sh "docker build -t '${registry}'/latest ."
       }
     }
   }
