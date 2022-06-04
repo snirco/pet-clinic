@@ -1,9 +1,9 @@
 pipeline {
-  agent any
+//   agent any
   
-  environment {
-    registry = "snirco"
-  }
+//   environment {
+//     registry = "snirco"
+//   }
   
   tools {
     maven "Maven"
@@ -34,14 +34,12 @@ pipeline {
         
     stage("Package Image") {
       agent {
-        docker {
-          image 'maven:3-alpine'
-        }
+        docker { image 'maven:3-alpine' }
       }
       steps {
         echo "Package Image stage..."
         sh 'mvn --version'
-        sh "docker build -t '${registry}'/latest ."
+//         sh "docker build -t '${registry}'/latest ."
       }
     }
   }
