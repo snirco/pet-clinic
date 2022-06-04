@@ -35,7 +35,7 @@ pipeline {
     stage("Package Image") {
       agent {
         docker {
-          label 'docker'
+          label 'Docker'
           image 'maven:3-alpine'
         }
       }
