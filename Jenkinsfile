@@ -35,7 +35,7 @@ pipeline {
     stage("Package Image") {
       steps {
         echo "Package Image stage..."
-        sh "docker build '${registry}' + '${/$BUILD_NUMBER}'"
+        sh "docker build '${registry}'/'${$BUILD_NUMBER}'"
       }
     }
   }
