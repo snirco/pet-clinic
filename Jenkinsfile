@@ -1,25 +1,31 @@
 pipeline {
   agent any
   
+  tools {
+    maven "Maven"
+  }
+  
   stages {
     stage("Build") {
       steps {
-        echo "Build stage"
-        git "https://github.com/spring-projects/spring-petclinic.git"
-        mvn compile
+        echo "Build stage..."
+        git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
+        sh 'mvn compile'
       }
     }
     
     stage("Test") {
       steps {
-          echo "Test stage"
-          mvn test
+        echo "Test stage..."
+        sh 'mvn test'
+        sh 'mvn dependency:tree'
       }
     }
     
-    stage("Delpoy") {
+    stage("Check Dependencies") {
       steps {
-          echo "Delpoy stage"
+        echo "Check Dependencies stage..."
+        sh 'mvn dependency:tree'
       }
     }
   }
