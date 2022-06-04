@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent my-docker
   
 //   environment {
 //     registry = "snirco"
@@ -34,7 +34,10 @@ pipeline {
         
     stage("Package Image") {
       agent {
-        docker { image 'maven:3-alpine' }
+        docker {
+          label 'my-docker'
+          image 'maven:3-alpine'
+        }
       }
       steps {
         echo "Package Image stage..."
