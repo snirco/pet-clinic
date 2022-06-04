@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'my-docker' }
+  agent any
   
 //   environment {
 //     registry = "snirco"
@@ -7,6 +7,7 @@ pipeline {
   
   tools {
     maven "Maven"
+    docker "my-docker"
   }
   
   stages {
