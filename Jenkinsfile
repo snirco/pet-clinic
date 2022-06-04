@@ -9,7 +9,7 @@ pipeline {
     stage("Build") {
       steps {
         echo "Build stage..."
-        git 'https://github.com/spring-projects/spring-petclinic.git'
+        git url: 'https://github.com/spring-projects/spring-petclinic.git' branch: 'main'
         sh 'mvn compile'
       }
     }
