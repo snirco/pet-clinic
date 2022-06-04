@@ -1,14 +1,18 @@
 pipeline {
   agent any
   
+  environment {
+    registry = "snirco"
+  }
+  
   tools {
     maven "Maven"
   }
   
   stages {
-    stage("Build") {
+    stage("Compile") {
       steps {
-        echo "Build stage..."
+        echo "Compile stage..."
         git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
         sh 'mvn compile'
       }
@@ -25,6 +29,15 @@ pipeline {
       steps {
         echo "Check Dependencies stage..."
         sh 'mvn dependency:tree'
+      }
+    }
+        
+    stage("Package Image") {
+      steps {
+        echo "Package Image stage..."
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        }
       }
     }
   }
