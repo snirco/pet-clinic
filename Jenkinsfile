@@ -19,6 +19,7 @@ pipeline {
       steps {
         sh 'echo "Test stage..."'
         sh 'mvn test'
+        sh 'mvn dependency:tree'
       }
     }
   }
