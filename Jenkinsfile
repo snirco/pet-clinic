@@ -3,7 +3,6 @@ pipeline {
   
   tools {
     maven "Maven"
-//     jdk "jdk8"
   }
   
   stages {
@@ -19,6 +18,13 @@ pipeline {
       steps {
         echo "Test stage..."
         sh 'mvn test'
+        sh 'mvn dependency:tree'
+      }
+    }
+    
+    stage("Check Dependencies") {
+      steps {
+        echo "Check Dependencies stage..."
         sh 'mvn dependency:tree'
       }
     }
