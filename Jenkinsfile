@@ -1,9 +1,9 @@
 pipeline {
   agent any
   
-//   environment {
-//     registry = "snirco"
-//   }
+  environment {
+    registry = "snirco"
+  }
   
   tools {
     maven "Maven"
