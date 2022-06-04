@@ -7,7 +7,6 @@ pipeline {
   
   tools {
     maven "Maven"
-    docker "Docker"
   }
   
   stages {
@@ -19,19 +18,19 @@ pipeline {
       }
     }
     
-    stage("Test") {
-      steps {
-        echo "Test stage..."
-        sh 'mvn test'
-      }
-    }
+//     stage("Test") {
+//       steps {
+//         echo "Test stage..."
+//         sh 'mvn test'
+//       }
+//     }
     
-    stage("Check Dependencies") {
-      steps {
-        echo "Check Dependencies stage..."
-        sh 'mvn dependency:tree'
-      }
-    }
+//     stage("Check Dependencies") {
+//       steps {
+//         echo "Check Dependencies stage..."
+//         sh 'mvn dependency:tree'
+//       }
+//     }
         
     stage("Package Image") {
       steps {
