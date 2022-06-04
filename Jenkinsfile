@@ -33,8 +33,15 @@ pipeline {
 //     }
         
     stage("Package Image") {
+      agent {
+        docker {
+          label 'docker'
+          image 'maven:3-alpine'
+        }
+      }
       steps {
         echo "Package Image stage..."
+        sh 'mvn --version'
         sh "docker build -t '${registry}'/latest ."
       }
     }
