@@ -41,9 +41,9 @@ pipeline {
       steps {
         echo "Package Image stage..."
         sh 'mvn --version'
-        script { 
-          dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-        }
+//         script { 
+//           dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+//         }
 
 
 //         script {
