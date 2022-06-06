@@ -55,7 +55,7 @@ pipeline {
 //            sh 'docker --version'
 //         }
 //         sh "docker build -t '${registry}'/latest ."
-      }
-    }
+//       }
+//     }
   }
 }
