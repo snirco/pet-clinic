@@ -20,23 +20,23 @@ pipeline {
     
     stage("Compile") {
       steps {
-        sh 'ls'
         echo "Compile stage..."
         sh 'mkdir test'
         dir("test") {
           git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
+          sh 'mvn compile'
         }
-        sh 'ls test'
-        sh 'ls'
       }
     }
     
-//     stage("Test") {
-//       steps {
-//         echo "Test stage..."
-//         sh 'mvn test'
-//       }
-//     }
+    stage("Test") {
+      steps {
+        echo "Test stage..."
+        dir("test") {
+          sh 'mvn test'
+        }
+      }
+    }
     
 //     stage("Check Dependencies") {
 //       steps {
