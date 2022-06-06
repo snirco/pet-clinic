@@ -39,5 +39,9 @@ pipeline {
         sh 'mvn dependency:tree'
       }
     }
+    
+    stage("Test Build") {
+      sh 'docker build .'
+    }
   }
 }
