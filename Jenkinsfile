@@ -1,32 +1,59 @@
 pipeline {
   agent any
   
+  environment {
+    registry = "snirco"
+  }
+  
   tools {
     maven "Maven"
   }
   
   stages {
-    stage("Build") {
+    
+    stage("Docker Test") {
       steps {
-        echo "Build stage..."
-        git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
-        sh 'mvn compile'
+        sh 'docker --version'
+        sh 'docker ps'   
+      }
+    }
+    
+    stage("Compile") {
+      steps {
+        echo "Compile stage..."
+        sh 'mkdir test'
+        dir("test") {
+          git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
+          sh 'mvn compile'
+        }
       }
     }
     
     stage("Test") {
       steps {
         echo "Test stage..."
-        sh 'mvn test'
-        sh 'mvn dependency:tree'
+        dir("test") {
+          sh 'mvn test'
+        }
       }
     }
     
-    stage("Check Dependencies") {
+//     stage("Check Dependencies") {
+//       steps {
+//         echo "Check Dependencies stage..."
+//         sh 'mvn dependency:tree'
+//       }
+//     }
+    
+    stage("Test Build") {
       steps {
-        echo "Check Dependencies stage..."
-        sh 'mvn dependency:tree'
+        sh 'docker build .'
       }
+    }
+  }
+  post { 
+    always { 
+      cleanWs()
     }
   }
 }
