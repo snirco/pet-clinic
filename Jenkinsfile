@@ -30,7 +30,8 @@ pipeline {
         echo "printing project content"
         sh 'ls'
         echo "printing upper content"
-        sh 'ls ../'
+        sh 'cd ..'
+        sh 'ls'
       }
     }
     
