@@ -14,6 +14,8 @@ pipeline {
     stage("Docker Test") {
       sh 'docker --version'
     }
+  }
+}
     
 //     stage("Compile") {
 //       steps {
@@ -58,4 +60,4 @@ pipeline {
 //       }
 //     }
 //   }
-}
+// }
