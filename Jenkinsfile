@@ -42,7 +42,8 @@ pipeline {
     
     stage("Test Build") {
       steps {
-        sh 'docker build . -f Dockerfile'
+        sleep 120
+        sh 'docker build . '
       }
     }
   }
