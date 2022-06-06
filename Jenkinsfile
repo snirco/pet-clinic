@@ -20,19 +20,10 @@ pipeline {
     
     stage("Compile") {
       steps {
-        echo "printing ls"
-        sh 'ls'
         echo "Compile stage..."
-        sh 'mkdir project'
-        sh 'ls'
-        sh 'cd project'
         sh 'ls'
         git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
 //         sh 'mvn compile'
-        echo "printing project content"
-        sh 'ls'
-        echo "printing upper content"
-        sh 'cd ..'
         sh 'ls'
       }
     }
