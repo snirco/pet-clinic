@@ -17,7 +17,9 @@ pipeline {
         sh 'mkdir test'
         dir("test") {
           git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
+          sh 'ls'
           sh 'mvn compile'
+          sh 'ls'
         }
       }
     }
