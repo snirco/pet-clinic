@@ -41,7 +41,9 @@ pipeline {
 //     }
     
     stage("Test Build") {
-      sh 'docker build .'
+      steps {
+        sh 'docker build .'
+      }
     }
   }
 }
