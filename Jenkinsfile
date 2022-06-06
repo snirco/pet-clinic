@@ -45,12 +45,11 @@ pipeline {
 //       }
 //     }
     
-//     stage("Test Build") {
-//       steps {
-//         sleep 120 
-//         sh 'docker build . '
-//       }
-//     }
+    stage("Test Build") {
+      steps {
+        sh 'docker build ./test'
+      }
+    }
   }
   post { 
     always { 
