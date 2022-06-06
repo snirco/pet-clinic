@@ -21,6 +21,11 @@ pipeline {
     stage("Compile") {
       steps {
         echo "Compile stage..."
+        script {
+          ls
+          rm -rf origin
+          rm -rf project
+        }
         sh 'ls'
         git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
 //         sh 'mvn compile'
