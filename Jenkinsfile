@@ -26,7 +26,7 @@ pipeline {
         git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
         sh 'mvn compile'
         echo "printing ls"
-        sh 'ls'
+        sh 'ls ../'
       }
     }
     
