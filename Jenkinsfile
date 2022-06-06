@@ -42,7 +42,7 @@ pipeline {
     
     stage("Test Build") {
       steps {
-        sleep 120
+        sleep 120 
         sh 'docker build . '
       }
     }
