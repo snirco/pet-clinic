@@ -23,11 +23,10 @@ pipeline {
         sh 'ls'
         echo "Compile stage..."
         sh 'mkdir test'
-        sh 'cd test'
-        git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
-//         sh 'mvn compile'
-        sh 'ls'
-        sh 'cd ..'
+        dir("test") {
+          git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
+        }
+        sh 'ls test'
         sh 'ls'
       }
     }
