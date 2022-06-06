@@ -10,13 +10,18 @@ pipeline {
   }
   
   stages {
-    stage("Compile") {
-      steps {
-        echo "Compile stage..."
-        git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
-        sh 'mvn compile'
-      }
+    
+    stage("Docker Test") {
+      sh 'docker --version
     }
+    
+//     stage("Compile") {
+//       steps {
+//         echo "Compile stage..."
+//         git url: 'https://github.com/spring-projects/spring-petclinic.git', branch: 'main'
+//         sh 'mvn compile'
+//       }
+//     }
     
 //     stage("Test") {
 //       steps {
@@ -32,22 +37,22 @@ pipeline {
 //       }
 //     }
         
-    stage("Package Image") {
-      agent {
-        docker {
-          image 'maven:3-alpine'
-        }
-      }
-      steps {
-        echo "Package Image stage..."
-        sh 'mvn --version'
+//     stage("Package Image") {
+//       agent {
+//         docker {
+//           image 'maven:3-alpine'
+//         }
+//       }
+//       steps {
+//         echo "Package Image stage..."
+//         sh 'mvn --version'
 //         script { 
 //           dockerImage = docker.build registry + ":$BUILD_NUMBER" 
 //         }
 
 
 //         script {
-//            'docker --version'
+//            sh 'docker --version'
 //         }
 //         sh "docker build -t '${registry}'/latest ."
       }
