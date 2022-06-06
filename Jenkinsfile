@@ -12,7 +12,7 @@ pipeline {
   stages {
     
     stage("Docker Test") {
-      sh 'docker --version
+      sh 'docker --version'
     }
     
 //     stage("Compile") {
