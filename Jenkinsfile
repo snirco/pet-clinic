@@ -11,13 +11,6 @@ pipeline {
   
   stages {
     
-    stage("Docker Test") {
-      steps {
-        sh 'docker --version'
-        sh 'docker ps'   
-      }
-    }
-    
     stage("Compile") {
       steps {
         echo "Compile stage..."
@@ -38,14 +31,7 @@ pipeline {
       }
     }
     
-//     stage("Check Dependencies") {
-//       steps {
-//         echo "Check Dependencies stage..."
-//         sh 'mvn dependency:tree'
-//       }
-//     }
-    
-    stage("Test Build") {
+    stage("Docker Build") {
       steps {
         sh 'docker build .'
       }
