@@ -11,13 +11,6 @@ pipeline {
   
   stages {
     
-    stage("Docker Test") {
-      steps {
-        sh 'docker --version'
-        sh 'docker ps'   
-      }
-    }
-    
     stage("Compile") {
       steps {
         echo "Compile stage..."
