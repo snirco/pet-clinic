@@ -26,19 +26,19 @@ pipeline {
       }
     }
     
-    stage("Test") {
-      steps {
-        echo "Test stage..."
-        sh 'mvn test'
-      }
-    }
+//     stage("Test") {
+//       steps {
+//         echo "Test stage..."
+//         sh 'mvn test'
+//       }
+//     }
     
-    stage("Check Dependencies") {
-      steps {
-        echo "Check Dependencies stage..."
-        sh 'mvn dependency:tree'
-      }
-    }
+//     stage("Check Dependencies") {
+//       steps {
+//         echo "Check Dependencies stage..."
+//         sh 'mvn dependency:tree'
+//       }
+//     }
     
     stage("Test Build") {
       sh 'docker build .'
